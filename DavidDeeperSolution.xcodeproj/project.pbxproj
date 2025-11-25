@@ -20,7 +20,7 @@
 		01FED3372ED6210400477B6C /* Exceptions for "DavidDeeperSolution" folder in "DavidDeeperSolution" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				App/Info.plist,
 			);
 			target = 01FED3242ED6210400477B6C /* DavidDeeperSolution */;
 		};
