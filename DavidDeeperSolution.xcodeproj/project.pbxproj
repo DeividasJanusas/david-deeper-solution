@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		01FED3412ED62B8400477B6C /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 01FED3402ED62B8400477B6C /* KeychainAccess */; };
+		01FED3442ED62BF200477B6C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 01FED3432ED62BF200477B6C /* Moya */; };
+		01FED3472ED62D2F00477B6C /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 01FED3462ED62D2F00477B6C /* MapboxMaps */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		01FED3252ED6210400477B6C /* DavidDeeperSolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DavidDeeperSolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01FED3472ED62D2F00477B6C /* MapboxMaps in Frameworks */,
+				01FED3442ED62BF200477B6C /* Moya in Frameworks */,
+				01FED3412ED62B8400477B6C /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,9 @@
 			);
 			name = DavidDeeperSolution;
 			packageProductDependencies = (
+				01FED3402ED62B8400477B6C /* KeychainAccess */,
+				01FED3432ED62BF200477B6C /* Moya */,
+				01FED3462ED62D2F00477B6C /* MapboxMaps */,
 			);
 			productName = DavidDeeperSolution;
 			productReference = 01FED3252ED6210400477B6C /* DavidDeeperSolution.app */;
@@ -107,6 +119,11 @@
 			);
 			mainGroup = 01FED31C2ED6210400477B6C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				01FED33F2ED62B8400477B6C /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				01FED3422ED62BF200477B6C /* XCRemoteSwiftPackageReference "Moya" */,
+				01FED3452ED62D2F00477B6C /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 01FED3262ED6210400477B6C /* Products */;
 			projectDirPath = "";
@@ -333,6 +350,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		01FED33F2ED62B8400477B6C /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.2;
+			};
+		};
+		01FED3422ED62BF200477B6C /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		01FED3452ED62D2F00477B6C /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.16.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		01FED3402ED62B8400477B6C /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01FED33F2ED62B8400477B6C /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		01FED3432ED62BF200477B6C /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01FED3422ED62BF200477B6C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		01FED3462ED62D2F00477B6C /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01FED3452ED62D2F00477B6C /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 01FED31D2ED6210400477B6C /* Project object */;
 }
