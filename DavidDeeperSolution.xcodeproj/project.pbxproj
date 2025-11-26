@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		01FED3412ED62B8400477B6C /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 01FED3402ED62B8400477B6C /* KeychainAccess */; };
 		01FED3442ED62BF200477B6C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 01FED3432ED62BF200477B6C /* Moya */; };
-		01FED3472ED62D2F00477B6C /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 01FED3462ED62D2F00477B6C /* MapboxMaps */; };
+		01FED4822ED7612B00477B6C /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 01FED4812ED7612B00477B6C /* GoogleMaps */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01FED3472ED62D2F00477B6C /* MapboxMaps in Frameworks */,
 				01FED3442ED62BF200477B6C /* Moya in Frameworks */,
 				01FED3412ED62B8400477B6C /* KeychainAccess in Frameworks */,
+				01FED4822ED7612B00477B6C /* GoogleMaps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +89,7 @@
 			packageProductDependencies = (
 				01FED3402ED62B8400477B6C /* KeychainAccess */,
 				01FED3432ED62BF200477B6C /* Moya */,
-				01FED3462ED62D2F00477B6C /* MapboxMaps */,
+				01FED4812ED7612B00477B6C /* GoogleMaps */,
 			);
 			productName = DavidDeeperSolution;
 			productReference = 01FED3252ED6210400477B6C /* DavidDeeperSolution.app */;
@@ -122,7 +122,7 @@
 			packageReferences = (
 				01FED33F2ED62B8400477B6C /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				01FED3422ED62BF200477B6C /* XCRemoteSwiftPackageReference "Moya" */,
-				01FED3452ED62D2F00477B6C /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+				01FED4802ED7612B00477B6C /* XCRemoteSwiftPackageReference "ios-maps-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 01FED3262ED6210400477B6C /* Products */;
@@ -162,6 +162,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 696PU7L8KC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DavidDeeperSolution/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -189,6 +190,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 696PU7L8KC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DavidDeeperSolution/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -368,12 +370,12 @@
 				minimumVersion = 15.0.3;
 			};
 		};
-		01FED3452ED62D2F00477B6C /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+		01FED4802ED7612B00477B6C /* XCRemoteSwiftPackageReference "ios-maps-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
+			repositoryURL = "https://github.com/googlemaps/ios-maps-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 11.16.6;
+				minimumVersion = 10.6.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -389,10 +391,10 @@
 			package = 01FED3422ED62BF200477B6C /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
 		};
-		01FED3462ED62D2F00477B6C /* MapboxMaps */ = {
+		01FED4812ED7612B00477B6C /* GoogleMaps */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 01FED3452ED62D2F00477B6C /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
-			productName = MapboxMaps;
+			package = 01FED4802ED7612B00477B6C /* XCRemoteSwiftPackageReference "ios-maps-sdk" */;
+			productName = GoogleMaps;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
