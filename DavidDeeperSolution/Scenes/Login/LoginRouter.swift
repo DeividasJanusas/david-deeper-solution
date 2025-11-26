@@ -1,13 +1,13 @@
 import UIKit
 
 protocol LoginRoutingLogic {
-    func routeToMain()
+    func routeToScanList()
 }
 
 final class LoginRouter: LoginRoutingLogic {
     weak var viewController: UIViewController?
 
-    func routeToMain() {
+    func routeToScanList() {
         // TODO: - Implement scans list
 //        viewController?.navigationController?.setViewControllers([vc], animated: true)
     }

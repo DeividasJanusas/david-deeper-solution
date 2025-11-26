@@ -3,11 +3,16 @@ import UIKit
 enum LoginBuilder {
     static func makeScene(
         api: APIClient,
-        tokenStore: KeychainService
+        tokenStore: KeychainService,
+        storage: UserStorageProtocol
     ) -> UIViewController {
         let vc = LoginViewController()
+        let interactor = LoginInteractor(
+            api: api,
+            tokenStore: tokenStore,
+            storage: storage
+        )
         let presenter = LoginPresenter()
-        let interactor = LoginInteractor(api: api, tokenStore: tokenStore)
         let router = LoginRouter()
 
         vc.interactor = interactor

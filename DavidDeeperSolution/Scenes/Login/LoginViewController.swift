@@ -2,7 +2,7 @@ import UIKit
 
 protocol LoginViewControllerInput: AnyObject {
     func display(state: Login.Data.State)
-    func displayLoginSuccess()
+    func displayScanList()
 }
 
 final class LoginViewController: UIViewController {
@@ -78,30 +78,28 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewControllerInput {
     func display(state: Login.Data.State) {
-        DispatchQueue.main.async {
-            if state.isLoading {
-                self.activity.startAnimating()
-                self.loginButton.isEnabled = false
-            } else {
-                self.activity.stopAnimating()
-                self.loginButton.isEnabled = true
-            }
+        if state.isLoading {
+            self.activity.startAnimating()
+            self.loginButton.isEnabled = false
+        } else {
+            self.activity.stopAnimating()
+            self.loginButton.isEnabled = true
+        }
 
-            if let msg = state.errorMessage {
-                let alert = UIAlertController(
-                    title: "Error",
-                    message: msg,
-                    preferredStyle: .alert
-                )
-                alert.addAction(
-                    UIAlertAction(title: "OK", style: .default)
-                )
-                self.present(alert, animated: true)
-            }
+        if let msg = state.errorMessage {
+            let alert = UIAlertController(
+                title: "Error",
+                message: msg,
+                preferredStyle: .alert
+            )
+            alert.addAction(
+                UIAlertAction(title: "OK", style: .default)
+            )
+            self.present(alert, animated: true)
         }
     }
 
-    func displayLoginSuccess() {
-        router.routeToMain()
+    func displayScanList() {
+        self.router.routeToScanList()
     }
 }

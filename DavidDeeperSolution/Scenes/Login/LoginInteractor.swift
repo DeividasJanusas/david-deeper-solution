@@ -9,11 +9,17 @@ final class LoginInteractor {
 
     private let api: APIClient
     private let tokenStore: KeychainService
+    private let storage: UserStorageProtocol
     private var state = Login.Data.State(isLoading: false, errorMessage: nil)
 
-    init(api: APIClient, tokenStore: KeychainService) {
+    init(
+        api: APIClient,
+        tokenStore: KeychainService,
+        storage: UserStorageProtocol
+    ) {
         self.api = api
         self.tokenStore = tokenStore
+        self.storage = storage
     }
 }
 
@@ -28,9 +34,10 @@ extension LoginInteractor: LoginInteractorInput {
                     .login(email: email, password: password)
                 )
 
+                storage.save(dto.scans)
                 tokenStore.token = dto.login.token
                 state.isLoading = false
-                presenter?.presentSuccess()
+                presenter?.presentScanList()
             } catch {
                 state.isLoading = false
                 state.errorMessage = error.localizedDescription
