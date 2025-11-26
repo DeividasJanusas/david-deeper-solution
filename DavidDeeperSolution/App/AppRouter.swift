@@ -12,22 +12,28 @@ final class AppRouter {
     private init() { }
 
     func start() {
-        var vc: UIViewController?
-
+        var vc: UIViewController
         if tokenStore.token == nil {
             vc = makeLogin()
         } else {
-            // TODO: - Make scans list
+            vc = makeScanList()
         }
 
         window.makeKeyAndVisible()
-        window.rootViewController = UINavigationController(rootViewController: vc ?? UIViewController())
+        window.rootViewController = UINavigationController(rootViewController: vc)
     }
 
     func makeLogin() -> UIViewController {
         return LoginBuilder.makeScene(
             api: api,
             tokenStore: tokenStore,
+            storage: userDefaultsStore
+        )
+    }
+
+    func makeScanList() -> UIViewController {
+        return ScanListBuilder.makeScene(
+            api: api,
             storage: userDefaultsStore
         )
     }
