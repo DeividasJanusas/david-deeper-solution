@@ -13,6 +13,7 @@ final class AppRouter {
 
     func start() {
         var vc: UIViewController
+        // TODO: - Implement check if session still valid
         if tokenStore.token == nil {
             vc = makeLogin()
         } else {
@@ -35,6 +36,14 @@ final class AppRouter {
         return ScanListBuilder.makeScene(
             api: api,
             storage: userDefaultsStore
+        )
+    }
+
+    func makeBathymetryMap(for scan: Scan) -> UIViewController {
+        return BathymetryMapBuilder.makeScene(
+            scan: scan,
+            api: api,
+            tokenStore: tokenStore
         )
     }
 }

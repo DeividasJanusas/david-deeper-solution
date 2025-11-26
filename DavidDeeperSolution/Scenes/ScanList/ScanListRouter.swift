@@ -8,7 +8,7 @@ final class ScanListRouter: ScanListRouterLogic {
     weak var viewController: UIViewController?
 
     func routeToDetails(scan: Scan) {
-// TODO: - Implement batimetry map scene
-//        viewController?.navigationController?.pushViewController(vc, animated: true)
+        let vc = AppRouter.shared.makeBathymetryMap(for: scan)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
