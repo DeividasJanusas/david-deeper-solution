@@ -3,6 +3,7 @@ import Moya
 
 public enum BackendEndpoint {
     case login(email: String, password: String)
+    case getGeoData(scanId: Int, token: String)
 }
 
 extension BackendEndpoint: TargetType {
@@ -11,13 +12,14 @@ extension BackendEndpoint: TargetType {
     public var path: String {
         switch self {
         case .login: return "login"
+        case .getGeoData: return "geoData"
         }
     }
 
     public var method: Moya.Method {
         switch self {
         case .login: .post
-        default: .get
+        case .getGeoData: .get
         }
     }
 
@@ -29,8 +31,18 @@ extension BackendEndpoint: TargetType {
                 encoding: JSONEncoding.default
             )
 
-        default:
-            return .requestPlain
+        case let .getGeoData(scanId, token):
+            let params: [String: Any] = [
+                "grid": "FAST",
+                "generator": "BS",
+                "scanIds": scanId,
+                "token": token
+            ]
+
+            return .requestParameters(
+                parameters: params,
+                encoding: URLEncoding.queryString
+            )
         }
     }
 
