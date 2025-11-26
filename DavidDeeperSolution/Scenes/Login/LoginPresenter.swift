@@ -1,6 +1,8 @@
+import Foundation
+
 protocol LoginPresenterInput {
     func present(state: Login.Data.State)
-    func presentSuccess()
+    func presentScanList()
 }
 
 final class LoginPresenter {
@@ -9,9 +11,13 @@ final class LoginPresenter {
 
 extension LoginPresenter: LoginPresenterInput {
     func present(state: Login.Data.State) {
-        viewController?.display(state: state)
+        DispatchQueue.main.async {
+            self.viewController?.display(state: state)
+        }
     }
-    func presentSuccess() {
-        viewController?.displayLoginSuccess()
+    func presentScanList() {
+        DispatchQueue.main.async {
+            self.viewController?.displayScanList()
+        }
     }
 }

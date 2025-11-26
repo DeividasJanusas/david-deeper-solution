@@ -1,19 +1,14 @@
 import UIKit
 
-enum LoginBuilder {
+enum ScanListBuilder {
     static func makeScene(
         api: APIClient,
-        tokenStore: KeychainService,
         storage: UserStorageProtocol
     ) -> UIViewController {
-        let vc = LoginViewController()
-        let interactor = LoginInteractor(
-            api: api,
-            tokenStore: tokenStore,
-            storage: storage
-        )
-        let presenter = LoginPresenter()
-        let router = LoginRouter()
+        let vc = ScanListViewController()
+        let interactor = ScanListInteractor(storage: storage)
+        let presenter = ScanListPresenter()
+        let router = ScanListRouter()
 
         vc.interactor = interactor
         vc.router = router

@@ -1,6 +1,6 @@
 import Foundation
 
-struct ScanDTO: Decodable {
+struct ScanDTO: Codable {
     let id: Int
     let lat: Double
     let lon: Double
@@ -8,4 +8,17 @@ struct ScanDTO: Decodable {
     let date: Date?
     let scanPoints: Int
     let mode: Int
+}
+
+extension ScanDTO {
+    func toDomain() -> Scan {
+        Scan(
+            id: id,
+            lat: lat,
+            lon: lon,
+            name: name,
+            date: date,
+            scanPoints: scanPoints
+        )
+    }
 }
