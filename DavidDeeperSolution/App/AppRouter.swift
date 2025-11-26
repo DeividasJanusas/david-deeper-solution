@@ -2,24 +2,33 @@ import UIKit
 
 final class AppRouter {
     lazy var window = UIWindow()
+
     static let shared = AppRouter()
+
     private let api: APIClient = MoyaAPIClient()
     private let tokenStore = KeychainService()
+    private let userDefaultsStore = UserDefaultsStorage()
 
     private init() { }
 
     func start() {
+        var vc: UIViewController?
+
         if tokenStore.token == nil {
-            showLogin()
+            vc = makeLogin()
         } else {
-            // TODO: - Implement scans list
+            // TODO: - Make scans list
         }
 
         window.makeKeyAndVisible()
+        window.rootViewController = UINavigationController(rootViewController: vc ?? UIViewController())
     }
 
-    func showLogin() {
-        let vc = LoginBuilder.makeScene(api: api, tokenStore: tokenStore)
-        window.rootViewController = UINavigationController(rootViewController: vc)
+    func makeLogin() -> UIViewController {
+        return LoginBuilder.makeScene(
+            api: api,
+            tokenStore: tokenStore,
+            storage: userDefaultsStore
+        )
     }
 }
